@@ -11,26 +11,17 @@ class TestController extends Controller
         return view('create');
     }
 
-    public function store()
-    { }
-
-    public function showConfirm()
+    public function confirm(Request $request)
     {
-        return view('confirm');
+        $data = $request->input;
+        session(['data' => $data]);
+        return view('confirm', compact('data'));
     }
 
-    public function confirm()
+    public function complete(Request $request)
     {
-        return view('create');
-    }
-
-    public function showComplete()
-    {
-        return view('complete');
-    }
-
-    public function complete()
-    {
-        return view('create');
+        $data = session('data');
+        session()->regenerate();
+        return view('complete', compact('data'));
     }
 }

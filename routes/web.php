@@ -12,8 +12,5 @@
 */
 
 Route::get('/create', 'TestController@create');
-Route::post('/create', 'TestController@store');
-Route::get('/confirm', 'TestController@showConfirm');
 Route::post('/confirm', 'TestController@confirm');
-Route::get('/complete', 'TestController@showComplete');
 Route::post('/complete', 'TestController@complete');
